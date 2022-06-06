@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  db:
+    image: 'postgres:13-alpine'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123qweASD
+      - POSTGRES_DB=fileManager
+    ports:
+      - "5430:5432"
+  minio:
+    image: 'minio/minio:latest'
+    ports:
+      - "9000:9000"
+      - "9099:9099"
+    environment:
+      - MINIO_ACCESS_KEY=developer
+      - MINIO_SECRET_KEY=123qweASD
+    volumes:
+      - ./storage/minio:/data
+    command: server --address ":9099" --console-address ":9000" /data
+    restart: always
+  app:
+    image: 'registry.hub.docker.com/radudob/filemanager.demo'   #v3
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/fileManager
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123qweASD
+      - BLOG_MINIO_URL=http://minio:9099/
+      - BLOG_MINIO_KEY=developer
+      - BLOG_MINIO_SECRET=123qweASD
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - minio

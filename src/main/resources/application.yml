@@ -1,0 +1,27 @@
+logging:
+  level:
+    ROOT: DEBUG
+  file:
+    path: ${user.home}
+    name: ${user.home}/logFile.log
+
+app:
+  minio:
+    url: http://localhost:9000
+    bucket-name: 26052022
+    key: developer
+    secret: 123qweASD
+
+spring:
+  jpa:
+    properties:
+      hibernate.format_sql: true
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/master.xml
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/fileManager #jdbcurl
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver

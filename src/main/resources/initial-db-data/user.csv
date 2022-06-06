@@ -1,0 +1,3 @@
+id;login;password;first_name;last_name;email
+1;admin;$2a$12$LrVPBQrPJeSOjVjR2z/of.r8zbPCgt7dqWuWfmB7KRxpJn0gQOjZm;admin;admin;admin@gmail.com
+2;user;$2a$12$xVyrwLdV5De6kchjLtWKAOiAKZ9o6FGR6yTHDPND4kjiD4RTWmKwy;user;user;user@gmial.com

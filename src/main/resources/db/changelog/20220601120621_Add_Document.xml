@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20220601120621-1" author="Esempla">
+        <createTable tableName="document">
+            <column autoIncrement="true" name="id" type="bigserial">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="path" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="size" type="Bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mime_type" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

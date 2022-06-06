@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <property name="datetimeType" value="datetime(6)" dbms="mysql, mariadb"/>
+    <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
+
+    <include file="db/changelog/20220601115901_Add_roles.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20220601120621_Add_Document.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20220601121013_Add_user.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20220601121414_add_userRoles.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20220601131621_Add_userDocuments.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20220601140921_Populate_roles_and_user.xml" relativeToChangelogFile="false"/>
+</databaseChangeLog>

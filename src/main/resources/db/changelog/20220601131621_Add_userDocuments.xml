@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="Esempla" id="20220601121414-1">
+        <createTable tableName="user_documents">
+            <column name="user_id" type="Bigint">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="document_id" type="Bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_documents"
+                                 constraintName="fk_user_document__user"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+
+        <addForeignKeyConstraint baseColumnNames="document_id"
+                                 baseTableName="user_documents"
+                                 constraintName="fk_user_documents__document"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document"/>
+    </changeSet>
+</databaseChangeLog>
